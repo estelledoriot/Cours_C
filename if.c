@@ -1,3 +1,6 @@
+/* Estelle DORIOT                            */
+/*  Cours sur les structures conditionnelles */
+
 #include <stdio.h>
 
 int main()

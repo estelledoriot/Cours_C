@@ -1,3 +1,6 @@
+/* Estelle DORIOT             */
+/*  Cours sur les boucles for */
+
 #include <stdio.h>
 
 int main()

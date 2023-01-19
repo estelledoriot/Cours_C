@@ -1,3 +1,6 @@
+/* Estelle DORIOT                   */
+/*  Cours sur le codage des entiers */
+
 #include <stdio.h>
 
 int main() 

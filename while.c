@@ -1,3 +1,6 @@
+/* Estelle DORIOT               */
+/*  Cours sur les boucles while */
+
 #include <stdio.h>
 
 int main()
