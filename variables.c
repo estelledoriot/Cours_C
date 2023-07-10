@@ -2,6 +2,7 @@
 /*  Cours sur les variables */
 
 #include <stdio.h> 
+#include <stdbool.h>
 
 int main()
 {
@@ -15,6 +16,12 @@ int main()
     printf("Taille du type double: %lu octets\n", sizeof(double));
     printf("Taille du type long double: %lu octets\n", sizeof(long double));
     
+    // booléens
+    bool y = true;
+    bool z = false;
+    printf("y = %d\n", y);
+    printf("z = %d\n", z);
+
     // operateurs arithmetiques
     printf("5 + 3 = %d -> resultat entier\n", 5 + 3); // addition de deux entiers
     printf("5.0 + 3 = %f -> resultat flottant\n", 5.0 + 3); // addition d'un entier et d'un flottant
@@ -23,7 +30,7 @@ int main()
     printf("5 %% 3 = %d -> resultat entier\n", 5 % 3); // operateur modulo
 
     // operateurs de comparaison
-    printf("%d\n", 3 < 9.5); // on peut comparer on entier et un flottant
+    printf("%d\n", 3 < 9.5); // on peut comparer un entier et un flottant
     printf("%d\n", 'b' < 'f'); // les caractères sont comparés avec l'ordre alphabétique
 
     // operateurs booleens
