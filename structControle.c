@@ -59,18 +59,18 @@ int main()
     scanf("%d", &dessert);
     switch (dessert)
     {
-        case 1:
-            printf("Vous avez choisi le gateau au chocolat\n");
-            break;
-        case 2:
-            printf("Vous avez choisi la glace\n");
-            break;
-        case 3:
-            printf("Vous avez choisi la tarte tatin\n");
-            break;
-        default:
-            printf("Ce choix n'est pas disponible\n");
-            break;
+    case 1:
+        printf("Vous avez choisi le gateau au chocolat\n");
+        break;
+    case 2:
+        printf("Vous avez choisi la glace\n");
+        break;
+    case 3:
+        printf("Vous avez choisi la tarte tatin\n");
+        break;
+    default:
+        printf("Ce choix n'est pas disponible\n");
+        break;
     }
 
     // boucle while
@@ -113,7 +113,7 @@ int main()
     {
         somme2 = somme2 + i;
         i = i + 1;
-    }    
+    }
     printf("La somme est %d\n", somme2);
 
     // compteur
@@ -131,7 +131,7 @@ int main()
         s = s + k;
     printf("Somme des nombres inférieurs à 7: %d\n", s);
 
-        // boucle + if
+    // boucle + if
     int n;
     printf("Veuillez donner un entier: ");
     scanf("%d", &n);
