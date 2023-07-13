@@ -74,11 +74,11 @@ int main()
     }
 
     // boucle while
-    int i = 1;
-    while (i <= 10)
+    int j = 1;
+    while (j <= 10)
     {
         printf("Bonjour\n");
-        i = i + 1;
+        j = j + 1;
     }
 
     // boucle infinie
@@ -96,6 +96,15 @@ int main()
     }
     printf("fin\n");
     */
+
+    // do while
+    int mdp = 123456;
+    int essai = 0;
+    do
+    {
+        printf("Veuillez entrer le mot de passe: ");
+        scanf("%d", &essai);
+    } while (essai != mdp);
 
     // boucle for simple
     for (int i = 1; i <= 5; i++)
