@@ -2,6 +2,7 @@
 /*  Cours sur les structures de controle */
 
 #include <stdio.h>
+#include <stdbool.h>
 
 int main()
 {
@@ -160,12 +161,12 @@ int main()
     int nombre;
     printf("Donner un entier: ");
     scanf("%d", &nombre);
-    int premier = 1;
+    bool premier = true;
     for (int i = 2; i < nombre; i++)
     {
         if (nombre % i == 0)
         {
-            premier = 0;
+            premier = false;
             break;
         }
     }
