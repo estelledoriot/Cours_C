@@ -292,8 +292,75 @@ int main()
     else
         printf("Il n'y a pas de solution réelle.\n");
 
-    /* Exercice n°17 */
-    printf("\n** Exercice n°17 **\n*******************\n");
+    /* Exercice n°16 */
+    printf("\n** Exercice n°16 **\n*******************\n");
+
+    printf("Donnez l'heure de début de la location (un entier) : ");
+    int debut;
+    scanf("%d", &debut);
+
+    printf("Donnez l'heure de fin de la location (un entier) : ");
+    int fin;
+    scanf("%d", &fin);
+
+    if (debut < 0 || debut > 24 || fin < 0 || fin > 24)
+        printf("Les heures doivent être comprises entre 0 et 24 !\n");
+    else if (debut == fin)
+        printf("Bizarre, vous n'avez pas loué votre vélo bien longtemps !\n");
+    else if (debut > fin)
+        printf("Bizarre, le début de la location est après la fin ...\n");
+    else
+    {
+        int tarif_nuit = 1;
+        int tarif_jour = 2;
+
+        int duree_location_nuit = 0;
+        int duree_location_jour = 0;
+        if (debut < 7)
+        {
+            if (fin < 7)
+                duree_location_nuit = fin - debut;
+            else if (fin < 17)
+            {
+                duree_location_nuit = 7 - debut;
+                duree_location_jour = fin - 7;
+            }
+            else
+            {
+                duree_location_nuit = fin - 17 + 7 - debut;
+                duree_location_jour = 17 - 7;
+            }
+        }
+        else if (debut < 17)
+        {
+            if (fin < 17)
+                duree_location_jour = fin - debut;
+            else
+            {
+                duree_location_jour = 17 - debut;
+                duree_location_nuit = fin - 17;
+            }
+        }
+        else
+        {
+            duree_location_nuit = fin - debut;
+        }
+
+        int total = tarif_nuit * duree_location_nuit + tarif_jour * duree_location_jour;
+
+        printf("Vous avez loué votre vélo pendant\n");
+
+        if (duree_location_nuit > 0)
+            printf("%d heure(s) au tarif horaire de %d euro(s)\n", duree_location_nuit, tarif_nuit);
+
+        if (duree_location_jour > 0)
+            printf("%d heure(s) au tarif horaire de %d euro(s)\n", duree_location_jour, tarif_jour);
+
+        printf("Le montant total à payer est de %d euro(s).\n", total);
+    }
+
+    /* Exercice n°18 */
+    printf("\n** Exercice n°18 **\n*******************\n");
 
     int n = 7;
     for (int i = 1; i <= n; i++)
@@ -345,8 +412,8 @@ int main()
         printf("\n");
     }
 
-    /* Exercice n°18 */
-    printf("\n** Exercice n°18 **\n*******************\n");
+    /* Exercice n°19 */
+    printf("\n** Exercice n°19 **\n*******************\n");
 
     for (int i = 1; i <= 100; i++)
     {
@@ -360,8 +427,8 @@ int main()
             printf("%d\n", i);
     }
 
-    /* Exercice n°19 */
-    printf("\n** Exercice n°19 **\n*******************\n");
+    /* Exercice n°20 */
+    printf("\n** Exercice n°20 **\n*******************\n");
 
     int m = 4;
     n = 3;
@@ -373,8 +440,8 @@ int main()
             printf("\n");
         }
 
-    /* Exercice n°20 */
-    printf("\n** Exercice n°20 **\n*******************\n");
+    /* Exercice n°21 */
+    printf("\n** Exercice n°21 **\n*******************\n");
 
     n = 4;
     for (int i = 0; i < n; i++)
@@ -389,8 +456,8 @@ int main()
         printf("\n");
     }
 
-    /* Exercice n°21 */
-    printf("\n** Exercice n°21 **\n*******************\n");
+    /* Exercice n°22 */
+    printf("\n** Exercice n°22 **\n*******************\n");
 
     for (int i = 1; i <= 10; i++)
         printf("%d x 5 = %d\n", i, i * 5);
@@ -417,8 +484,8 @@ int main()
         printf("\n");
     }
 
-    /* Exercice n°22 */
-    printf("\n** Exercice n°22 **\n*******************\n");
+    /* Exercice n°23 */
+    printf("\n** Exercice n°23 **\n*******************\n");
 
     printf("Veuillez donner un nombre entier: ");
     scanf("%d", &n);
@@ -445,8 +512,8 @@ int main()
             s = s * i;
     printf("Le produit des nombres pairs inférieurs à %d est: %ld\n", n, s);
 
-    /* Exercice n°23 */
-    printf("\n** Exercice n°23 **\n*******************\n");
+    /* Exercice n°24 */
+    printf("\n** Exercice n°24 **\n*******************\n");
 
     printf("Veuillez donner un nombre de notes: ");
     scanf("%d", &n);
@@ -460,8 +527,8 @@ int main()
     }
     printf("La moyenne des notes est: %f\n", (double)s / n);
 
-    /* Exercice n°24 */
-    printf("\n** Exercice n°24 **\n*******************\n");
+    /* Exercice n°25 */
+    printf("\n** Exercice n°25 **\n*******************\n");
 
     printf("Veuillez donner un entier: ");
     scanf("%d", &n);
@@ -483,8 +550,8 @@ int main()
             somme += i;
     printf("La somme des diviseurs de %d est %d.\n", n, somme);
 
-    /* Exercice n°25 */
-    printf("\n** Exercice n°25 **\n*******************\n");
+    /* Exercice n°26 */
+    printf("\n** Exercice n°26 **\n*******************\n");
 
     int nombre4;
     printf("Veuillez donner un nombre entre 2 et 12: ");
@@ -514,8 +581,8 @@ int main()
                 }
     printf("Il y a %d possibilités de faire %d avec 3 dés.\n", somme, nombre4);
 
-    /* Exercice n°26 */
-    printf("\n** Exercice n°26 **\n*******************\n");
+    /* Exercice n°27 */
+    printf("\n** Exercice n°27 **\n*******************\n");
 
     int total = 0;
     for (int a = 0; a <= 10; a++)
@@ -528,8 +595,8 @@ int main()
                 }
     printf("Il y a %d façons d'obtenir 1 euro avec des pièces de 2, 5 et 10 centimes.\n", total);
 
-    /* Exercice n°27 */
-    printf("\n** Exercice n°27 **\n*******************\n");
+    /* Exercice n°28 */
+    printf("\n** Exercice n°28 **\n*******************\n");
 
     for (int a = 1; a <= 100; a++)
         for (int b = 1; b <= 100; b++)
@@ -544,8 +611,8 @@ int main()
                 if (a * a + b * b == c * c)
                     printf("%d^2 + %d^2 = %d^2\n", a, b, c);
 
-    /* Exercice n°28 */
-    printf("\n** Exercice n°28 **\n*******************\n");
+    /* Exercice n°29 */
+    printf("\n** Exercice n°29 **\n*******************\n");
 
     int points = 1, etape;
     printf("Veuillez donner un nombre entier: ");
@@ -554,10 +621,10 @@ int main()
     for (int i = 1; i <= etape; i++)
         points += 5 * i;
 
-    printf("Un pentagone de taille %d a %d points.\n", n, points);
+    printf("Un pentagone de taille %d a %d points.\n", etape, points);
 
-    /* Exercice n°29 */
-    printf("\n** Exercice n°29 **\n*******************\n");
+    /* Exercice n°30 */
+    printf("\n** Exercice n°30 **\n*******************\n");
 
     int w = 10;
     while (w >= 1)
@@ -566,8 +633,8 @@ int main()
         w--;
     }
 
-    /* Exercice n°30 */
-    printf("\n** Exercice n°30 **\n*******************\n");
+    /* Exercice n°31 */
+    printf("\n** Exercice n°31 **\n*******************\n");
 
     int nombreMystere = 53, choix;
     do
@@ -605,8 +672,8 @@ int main()
     else
         printf("Perdu en %d essais ! La réponse était %d.", nb_essais, nombreMystere2);
 
-    /* Exercice n°31 */
-    printf("\n** Exercice n°31 **\n*******************\n");
+    /* Exercice n°32 */
+    printf("\n** Exercice n°32 **\n*******************\n");
 
     int mois = 0;
     double prix2;
@@ -619,8 +686,8 @@ int main()
     }
     printf("Le prix dépasse 1000€ au bout de %d mois.\n", mois);
 
-    /* Exercice n°32 */
-    printf("\n** Exercice n°32 **\n*******************\n");
+    /* Exercice n°33 */
+    printf("\n** Exercice n°33 **\n*******************\n");
 
     double conso_initiale = 20000000, conso = conso_initiale;
     int annee2 = 0;
@@ -641,8 +708,8 @@ int main()
     }
     printf("Il faut %d ans pour doubler la consommation energétique.\n", annee2);
 
-    /* Exercice n°33 */
-    printf("\n** Exercice n°33 **\n*******************\n");
+    /* Exercice n°34 */
+    printf("\n** Exercice n°34 **\n*******************\n");
 
     int habitants = 40000, malades = 1, nouveaux_malades = 0, jours = 1;
     while (malades < habitants)
@@ -653,8 +720,8 @@ int main()
     }
     printf("Au bout de %d jours, tout le monde est malade\n", jours);
 
-    /* Exercice n°34 */
-    printf("\n** Exercice n°34 **\n*******************\n");
+    /* Exercice n°35 */
+    printf("\n** Exercice n°35 **\n*******************\n");
 
     double riz = 0;
     for (int i = 0; i < 64; i++)
@@ -670,8 +737,8 @@ int main()
     }
     printf("A partir de la case %d, il faut plus de 10**12 grains de riz\n", i);
 
-    /* Exercice n°35 */
-    printf("\n** Exercice n°35 **\n*******************\n");
+    /* Exercice n°36 */
+    printf("\n** Exercice n°36 **\n*******************\n");
 
     printf("Donnez un entier: ");
     scanf("%d", &n);
