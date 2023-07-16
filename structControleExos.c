@@ -755,5 +755,81 @@ int main()
     printf("Le nombre de chiffres de %d est %d\n", n, cpt);
     printf("La somme des chiffres de %d est %d\n", n, somme2);
 
+    /* Exercice n°37 */
+    printf("\n** Exercice n°37 **\n*******************\n");
+
+    const double g = 9.81;
+
+    double h;
+    do
+    {
+        printf("Veuillez donner la hauteur initiale : ");
+        scanf("%lf", &h);
+        if (h <= 0)
+            printf("Veuillez donner une valeur strictement positive.\n");
+    } while (h <= 0);
+
+    double eps;
+    do
+    {
+        printf("Veuillez donner le coefficient de rebond : ");
+        scanf("%lf", &eps);
+        if (eps < 0 || eps >= 1)
+            printf("Veuillez donner une valeur entre 0 (inclus) et 1 (exclus).\n");
+    } while (eps < 0 || eps >= 1);
+
+    int nbr;
+    do
+    {
+        printf("Veuillez donner un nombre de rebonds : ");
+        scanf("%d", &nbr);
+        if (nbr < 0)
+            printf("Veuillez donner une valeur positive.\n");
+    } while (nbr < 0);
+
+    double v1;
+    for (int i = 1; i <= nbr; i++)
+    {
+        v1 = eps * sqrt(2 * h * g);
+        h = (v1 * v1) / (2 * g);
+    }
+
+    printf("La hauteur du %d-ième rebond est: %f\n", nbr, h);
+
+    do
+    {
+        printf("Veuillez donner la hauteur initiale : ");
+        scanf("%lf", &h);
+        if (h <= 0)
+            printf("Veuillez donner une valeur strictement positive.\n");
+    } while (h <= 0);
+
+    do
+    {
+        printf("Veuillez donner le coefficient de rebond : ");
+        scanf("%lf", &eps);
+        if (eps < 0 || eps >= 1)
+            printf("Veuillez donner une valeur entre 0 (inclus) et 1 (exclus).\n");
+    } while (eps < 0 || eps >= 1);
+
+    double h_fin;
+    do
+    {
+        printf("Veuillez donner une hauteur de fin : ");
+        scanf("%lf", &h_fin);
+        if (h_fin <= 0 || h_fin >= h)
+            printf("Veuillez donner une valeur entre 0 et h.\n");
+    } while (nbr < 0);
+
+    int nb_rebonds = 0;
+    while (h > h_fin)
+    {
+        v1 = eps * sqrt(2 * h * g);
+        h = (v1 * v1) / (2 * g);
+        nb_rebonds++;
+    }
+
+    printf("La hauteur atteint %f après %d rebonds.\n", h_fin, nb_rebonds);
+
     return 0;
 }
