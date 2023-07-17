@@ -819,7 +819,7 @@ int main()
         scanf("%lf", &h_fin);
         if (h_fin <= 0 || h_fin >= h)
             printf("Veuillez donner une valeur entre 0 et h.\n");
-    } while (nbr < 0);
+    } while (h_fin <= 0 || h_fin >= h);
 
     int nb_rebonds = 0;
     while (h > h_fin)
