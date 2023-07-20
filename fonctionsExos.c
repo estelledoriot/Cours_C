@@ -2,6 +2,7 @@
 /*  Exercices sur les fonctions */
 
 #include <stdio.h>
+#include <stdbool.h>
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
@@ -41,12 +42,12 @@ int G(int n)
 }
 
 /* Exercice n°5 */
-float distance_au_carre (float x1, float y1, float x2, float y2)
+float distance_au_carre(float x1, float y1, float x2, float y2)
 {
     return (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
 }
 
-int est_rectangle(float xa, float ya, float xb, float yb, float xc, float yc)
+bool est_rectangle(float xa, float ya, float xb, float yb, float xc, float yc)
 {
     float ab2 = distance_au_carre(xa, ya, xb, yb);
     float ac2 = distance_au_carre(xa, ya, xc, yc);
@@ -57,16 +58,16 @@ int est_rectangle(float xa, float ya, float xb, float yb, float xc, float yc)
 /* Exercice n°6 */
 void ligne(int n, int m)
 {
-    for (int i=1; i<=n; i++)
+    for (int i = 1; i <= n; i++)
         printf("A");
-    for (int i=1; i<=m; i++)
+    for (int i = 1; i <= m; i++)
         printf("B");
     printf("\n");
 }
-    
+
 void carre(int m)
 {
-    for (int i=1; i<=m; i++)
+    for (int i = 1; i <= m; i++)
         ligne(i, m - i);
 }
 
@@ -74,9 +75,9 @@ void carre(int m)
 float moyenneDe(int n)
 {
     int s = 0;
-    for (int i=1; i<=n; i++)
+    for (int i = 1; i <= n; i++)
         s += rand() % 6 + 1;
-    return (float) s/n;
+    return (float)s / n;
 }
 
 int premier6()
@@ -91,21 +92,21 @@ int premier6()
 }
 
 /* Exercice n°8 */
-int est_premier(int n)
+bool est_premier(int n)
 {
     if (n == 1)
-        return 0; // 1 n'est pas premier
-    for (int i=2; i<=sqrt(n); i++)
+        return false; // 1 n'est pas premier
+    for (int i = 2; i <= sqrt(n); i++)
         if (n % i == 0) // si n admet un diviseur autre que 1 et lui-même il n'est pas premier
-            return 0;
-    return 1; // sinon il est premier
+            return false;
+    return true; // sinon il est premier
 }
 
 /* Exercice n°9 */
-int s1(int n )
+int s1(int n)
 {
     int somme = 0;
-    for (int i=1; i<=n; i++)
+    for (int i = 1; i <= n; i++)
         somme = somme + i;
     return somme;
 }
@@ -113,7 +114,7 @@ int s1(int n )
 int s3(int n)
 {
     int somme = 0;
-    for (int i=1; i<=n; i++)
+    for (int i = 1; i <= n; i++)
         somme = somme + i * i * i;
     return somme;
 }
@@ -122,14 +123,14 @@ int s3(int n)
 long factorielle(int n)
 {
     long p = 1;
-    for (int i=1; i<=n; i++)
+    for (int i = 1; i <= n; i++)
         p *= i;
     return p;
 }
 
 int catalan(int n)
 {
-    return factorielle(2*n) / (factorielle(n+1) * factorielle(n));
+    return factorielle(2 * n) / (factorielle(n + 1) * factorielle(n));
 }
 
 /* Exercice n°11 */
@@ -144,7 +145,7 @@ int PGCD(int a, int b)
     }
     return d2;
 }
-    
+
 int PPCM(int a, int b)
 {
     return (a * b) / PGCD(a, b);
@@ -203,19 +204,19 @@ int main()
     printf("On obtient le premier 6 au bout de %d lancers.\n", premier6());
 
     int s = 0;
-    for (int i=1; i<=10000; i++)
+    for (int i = 1; i <= 10000; i++)
         s += premier6();
 
-    printf("Il faut en moyenne %f lancers pour obtenir un 6.\n", (float) s/10000);
+    printf("Il faut en moyenne %f lancers pour obtenir un 6.\n", (float)s / 10000);
 
     /* Exercice n°8 */
     printf("\n** Exercice n°8 **\n******************\n");
 
-    int res = 1;
-    for (int i=0; i<=40; i++)
-        if (! est_premier(i * i - i + 41))
+    bool res = true;
+    for (int i = 0; i <= 40; i++)
+        if (!est_premier(i * i - i + 41))
         {
-            res = 0;
+            res = false;
             printf("Il existe un f(n) non premier pour n entre 0 et 40 : f(%d) = %d\n", i, i * i - i + 41);
             break;
         }
@@ -223,8 +224,8 @@ int main()
         printf("Tous les f(n) pour n entre 0 et 40 sont premiers.\n");
 
     int compteur = 0;
-    for (int i=0; i<=100; i++)
-        if (! est_premier(i * i - i + 41))
+    for (int i = 0; i <= 100; i++)
+        if (!est_premier(i * i - i + 41))
             compteur++;
 
     printf("Il y a %d f(n) non premiers pour n inférieur à 100.\n", compteur);
@@ -232,18 +233,18 @@ int main()
     /* Exercice n°9 */
     printf("\n** Exercice n°9 **\n******************\n");
 
-    printf("La somme des entiers de 1 à 100 est: %d\n", s1(100)); 
+    printf("La somme des entiers de 1 à 100 est: %d\n", s1(100));
     printf("La somme des cubes des entiers de 1 à 100 est: %d\n", s3(100));
 
-    res = 0;
-    for (int n=1; n<=1000; n++)
+    res = false;
+    for (int n = 1; n <= 1000; n++)
         if (s1(n) * s1(n) != s3(n))
         {
-            res = 1;
+            res = true;
             printf("Pour n = {%d}, on a s3({%d}) != s1({%d}) ** 2\n", n, n, n);
             break;
         }
-    if (! res)
+    if (!res)
         printf("Il n'y a aucun n <= 1000 pour lequel s3(n) != s1(n) ** 2\n");
 
     /* Exercice n°10 */

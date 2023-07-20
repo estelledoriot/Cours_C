@@ -83,12 +83,12 @@ int main()
     printf("a = %d\n", a);
     */
 
-    for (int i=1; i<=3; i++)
+    for (int i = 1; i <= 3; i++)
         printf("Hello !\n");
     /* génère une erreur
     printf("i = %d\n", i);
     */
-   
+
     int b = truc(3); // utilise la variable a
     printf("b = %d\n", b);
 
