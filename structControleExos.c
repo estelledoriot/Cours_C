@@ -831,5 +831,45 @@ int main()
 
     printf("La hauteur atteint %f après %d rebonds.\n", h_fin, nb_rebonds);
 
+    /* Exercice n°38 */
+    printf("\n** Exercice n°38 **\n*******************\n");
+
+    // Paramètres
+    double taux_croissance_lapins = 0.3;
+    double taux_attaque = 0.01;
+    double taux_croissance_renards = 0.008;
+    double taux_mortalite = 0.1;
+    int duree = 50;
+
+    double renards_i = 0.0;
+    double lapins_i = 0.0;
+
+    do
+    {
+        printf("Combien de renards au départ (>= 2) ? ");
+        scanf("%lf", &renards_i);
+    } while (renards_i < 2);
+
+    do
+    {
+        printf("Combien de lapins au départ  (>= 5) ? ");
+        scanf("%lf", &lapins_i);
+    } while (lapins_i < 5);
+
+    double nb_renards = renards_i;
+    double nb_lapins = lapins_i;
+    for (int i = 1; i <= duree; i++)
+    {
+        double renards_prec = nb_renards;
+        double lapins_prec = nb_lapins;
+        nb_lapins *= (1.0 + taux_croissance_lapins - taux_attaque * renards_prec);
+        if (nb_lapins == 0)
+            nb_lapins = 0.0;
+        nb_renards *= (1.0 + taux_attaque * lapins_prec * taux_croissance_renards - taux_mortalite);
+        if (nb_renards == 0)
+            nb_renards = 0.0;
+        printf("Après %d mois, il y a %f lapins et %f renards\n", i, nb_lapins, nb_renards);
+    }
+
     return 0;
 }
