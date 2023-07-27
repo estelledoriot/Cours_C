@@ -74,6 +74,12 @@ int main()
         break;
     }
 
+    // opérateur ternaire
+    int nb1 = 10;
+    int nb2 = 20;
+    int nb3 = (nb1 > nb2) ? nb1 : nb2;
+    printf("nb3 = %d\n", nb3);
+
     // boucle while
     int j = 1;
     while (j <= 10)
