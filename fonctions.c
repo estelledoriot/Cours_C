@@ -70,6 +70,11 @@ int main()
     hello("Alice");
     hello("Bob");
 
+    char *prenom;
+    printf("Veuillez donner votre prenom: ");
+    scanf("%s", prenom);
+    hello(prenom);
+
     printf("%d\n", max1(3, 7));
     printf("%d\n", max1(9, 4));
     printf("%d\n", max1(max1(4, 9), 6));
