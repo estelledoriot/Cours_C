@@ -64,6 +64,14 @@ int incremente(int b)
     return b;
 }
 
+int factorielle_rec(int n)
+{
+    if (n == 1)
+        return 1;
+    else
+        return n * factorielle_rec(n - 1);
+}
+
 int main()
 {
     hello2();
@@ -103,6 +111,8 @@ int main()
     int a = 8;
     a = incremente(a);
     printf("a = %d\n", a);
+
+    printf("Factorielle (recursive) 4: %d\n", factorielle_rec(4));
 
     return 0;
 }
