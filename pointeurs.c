@@ -17,7 +17,7 @@ int main()
     int *pointeurAge;
     pointeurAge = &age;
 
-    printf("Valeur de age: %d\n", *pointeurAge);
+    printf("Contenu de pointeurAge: %d\n", *pointeurAge);
 
     int *p = NULL;
 
