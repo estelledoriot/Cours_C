@@ -1,11 +1,90 @@
 /* Estelle DORIOT           */
 /*  Exercices sur les tableaux */
 
-#include <stdio.h> 
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
+void afficher_tableau(int tab[], int nb);
+void notes_hasard(int tab[], int nb);
+int somme(int tab[], int n);
+int appartient(int valeur, int tab[], int n);
+int indice(int valeur, int tab[], int n);
+int nb_occurrences(int valeur, int tab[], int n);
+int croissant(int tab[], int n);
+int maximum(int tab[], int n);
+int minimum(int tab[], int n);
+int indice_max(int tab[], int n);
+int indice_min(int tab[], int n);
+int derniere_occurrence(int valeur, int tab[], int n);
+double moyenne_simple(int notes[], int n);
+double moyenne_ponderee(int notes[], double coeffs[], int n);
+void carres(int tab[], int res[], int n);
+bool symetrique(int tab[], int n);
+void echange(int tab[], int i, int j);
+void miroir(int tab[], int n);
 
+int main()
+{
+    /* Exercice n°1 */
+    printf("\n** Exercice n°1 **\n******************\n");
+
+    int nb = 10;
+    int tab[10];
+    notes_hasard(tab, nb);
+    afficher_tableau(tab, nb);
+
+    /* Exercice n°2 */
+    printf("\n** Exercice n°2 **\n******************\n");
+
+    printf("Somme des éléments de tab: %d\n", somme(tab, nb));
+    printf("15 est-il dans tab: %d\n", appartient(15, tab, nb));
+    printf("Indice de 15 dans tab: %d\n", indice(15, tab, nb));
+    printf("Nombre d'occurrences de 15 dans tab: %d\n", nb_occurrences(15, tab, nb));
+    printf("Est-ce que tab est croissant: %d\n", croissant(tab, nb));
+    printf("Maximum de tab: %d\n", maximum(tab, nb));
+    printf("Minimum de tab: %d\n", minimum(tab, nb));
+    printf("Indice du maximum de tab: %d\n", indice_max(tab, nb));
+    printf("Indice du minimum de tab: %d\n", indice_min(tab, nb));
+    printf("La dernière occurrence de 15 dans tab: %d\n", indice(15, tab, nb));
+
+    /* Exercice n°3 */
+    printf("\n** Exercice n°3 **\n******************\n");
+    int notes[] = {15, 16, 14, 12};
+    double coeffs[] = {0.5, 1, 2, 0.5};
+    printf("Moyenne des notes [15, 16, 14, 12]: %f\n", moyenne_simple(notes, 4));
+    printf("Moyenne pondérée des notes: %f\n", moyenne_ponderee(notes, coeffs, 4));
+
+    /* Exercice n°4 */
+    printf("\n** Exercice n°4 **\n******************\n");
+    int res[10];
+    carres(tab, res, nb);
+    printf("tab au carrés:\n");
+    afficher_tableau(res, nb);
+
+    /* Exercice n°5 */
+    printf("\n** Exercice n°5 **\n******************\n");
+    int tab1[] = {1, 7, 4, 9, 4, 7, 1};
+    printf("{1, 7, 4, 9, 4, 7, 1} est symétrique: %d\n", symetrique(tab1, 7));
+    int tab2[] = {1, 2, 3, 4};
+    printf("{1, 2, 3, 4} est symétrique: %d\n", symetrique(tab2, 4));
+    printf("Echange des indices 1 et 3 de {1, 7, 4, 9, 4, 7, 1}: ");
+    echange(tab1, 1, 3);
+    afficher_tableau(tab1, 7);
+    printf("Tableau miroir: ");
+    miroir(tab1, 7);
+    afficher_tableau(tab1, 7);
+
+    return 0;
+}
+
+void afficher_tableau(int tab[], int nb)
+{
+    for (int i = 0; i < nb; i++)
+        printf("%d ", tab[i]);
+    printf("\n");
+}
 
 /* Exercice n°1 */
 void notes_hasard(int tab[], int nb)
@@ -46,14 +125,14 @@ int nb_occurrences(int valeur, int tab[], int n)
     int nb = 0;
     for (int i = 0; i < n; i++)
         if (tab[i] == valeur)
-            nb ++;
+            nb++;
     return nb;
 }
 
 int croissant(int tab[], int n)
 {
-    for (int i = 0; i < n-1; i++)
-        if (tab[i] > tab[i+1])
+    for (int i = 0; i < n - 1; i++)
+        if (tab[i] > tab[i + 1])
             return 0;
     return 1;
 }
@@ -85,7 +164,7 @@ int indice_max(int tab[], int n)
         {
             maxi = tab[i];
             ind_max = i;
-        } 
+        }
     return ind_max;
 }
 
@@ -117,7 +196,7 @@ double moyenne_simple(int notes[], int n)
     double moyenne = 0;
     for (int i = 0; i < n; i++)
         moyenne += notes[i];
-    return moyenne/n;
+    return moyenne / n;
 }
 
 double moyenne_ponderee(int notes[], double coeffs[], int n)
@@ -129,43 +208,36 @@ double moyenne_ponderee(int notes[], double coeffs[], int n)
         moyenne += notes[i] * coeffs[i];
         coeff += coeffs[i];
     }
-    return moyenne/coeff;
+    return moyenne / coeff;
 }
 
-
-int main()
+/* Exercice n°4 */
+void carres(int tab[], int res[], int n)
 {
-    /* Exercice n°1 */
-    printf("\n** Exercice n°1 **\n******************\n");
+    for (int i = 0; i < n; i++)
+        res[i] = tab[i] * tab[i];
+}
 
-    int nb = 10;
-    int tab[10];
-    notes_hasard(tab, nb);
+/* Exercice n°5 */
+bool symetrique(int tab[], int n)
+{
+    for (int i = 0; i < n / 2; i++)
+    {
+        if (tab[i] != tab[n - 1 - i])
+            return false;
+    }
+    return true;
+}
 
-    for (int i = 0; i < nb; i++)
-        printf("%d ", tab[i]);
-    printf("\n");
+void echange(int tab[], int i, int j)
+{
+    int temp = tab[i];
+    tab[i] = tab[j];
+    tab[j] = temp;
+}
 
-    /* Exercice n°2 */
-    printf("\n** Exercice n°2 **\n******************\n");
-
-    printf("Somme des éléments de tab: %d\n", somme(tab, nb));
-    printf("15 est-il dans tab: %d\n", appartient(15, tab, nb));
-    printf("Indice de 15 dans tab: %d\n", indice(15, tab, nb));
-    printf("Nombre d'occurrences de 15 dans tab: %d\n", nb_occurrences(15, tab, nb));
-    printf("Est-ce que tab est croissant: %d\n", croissant(tab, nb));
-    printf("Maximum de tab: %d\n", maximum(tab, nb));
-    printf("Minimum de tab: %d\n", minimum(tab, nb));
-    printf("Indice du maximum de tab: %d\n", indice_max(tab, nb));
-    printf("Indice du minimum de tab: %d\n", indice_min(tab, nb));
-    printf("La dernière occurrence de 15 dans tab: %d\n", indice(15, tab, nb));
-
-    /* Exercice n°3 */
-    printf("\n** Exercice n°3 **\n******************\n");
-    int notes[] = {15, 16, 14, 12}; 
-    double coeffs[] = {0.5, 1, 2, 0.5};
-    printf("Moyenne des notes [15, 16, 14, 12]: %f\n", moyenne_simple(notes, 4));
-    printf("Moyenne pondérée des notes: %f\n",moyenne_ponderee(notes, coeffs, 4));
-
-    return 0;
+void miroir(int tab[], int n)
+{
+    for (int i = 0; i < n / 2; i++)
+        echange(tab, i, n - 1 - i);
 }
