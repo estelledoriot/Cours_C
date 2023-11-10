@@ -1,4 +1,4 @@
-/* Estelle DORIOT           */
+/* Estelle DORIOT              */
 /*  Exercices sur les tableaux */
 
 #include <stdio.h>
