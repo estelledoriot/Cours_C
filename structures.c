@@ -70,7 +70,7 @@ void activite(Jour jour)
 {
     if (jour == LUNDI)
     {
-        prinft("Il y a tennis\n");
+        printf("Il y a tennis\n");
     }
     else if (jour == MARDI)
     {
