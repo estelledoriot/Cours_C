@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double aireRectangle(double largeur, double hauteur); //prototype
+double aireRectangle(double largeur, double hauteur); // prototype
 
 int main()
 {

@@ -1,12 +1,12 @@
-/* Estelle DORIOT               */
-/*  Exercices sur les variables */
+// Estelle DORIOT               */
+//  Exercices sur les variables */
 
 #include <stdio.h>
 #define PI 3.14159
 
 int main()
 {
-    /* Exercice n°2 */
+    // Exercice n°2
     printf("\n** Exercice n°2 **\n******************\n");
 
     int a = 10;
@@ -18,7 +18,7 @@ int main()
     a = a * 2;
     printf("Doublement de a: %d\n", a);
 
-    /* Exercice n°3 */
+    // Exercice n°3
     printf("\n** Exercice n°3 **\n******************\n");
 
     int c = 5;
@@ -34,7 +34,7 @@ int main()
     d = e - d;
     printf("d = %d, e = %d\n", d, e);
 
-    /* Exercice n°4 */
+    // Exercice n°4
     printf("\n** Exercice n°4 **\n******************\n");
 
     double rayon;
@@ -44,13 +44,13 @@ int main()
     double aire = PI * rayon * rayon;
     printf("Le périmètre du cercle est: %f et son aire est: %f\n", perimetre, aire);
 
-    /* Exercice n°5 */
+    // Exercice n°5
     printf("\n** Exercice n°5 **\n******************\n");
 
-    printf("147/19 = %d\n", 147/19);
-    printf("147%%19 = %d\n", 147%19);
+    printf("147/19 = %d\n", 147 / 19);
+    printf("147%%19 = %d\n", 147 % 19);
 
-    /* Exercice n°6 */
+    // Exercice n°6
     printf("\n** Exercice n°6 **\n******************\n");
 
     int secondes = 0;
@@ -62,8 +62,8 @@ int main()
     secondes = secondes % 60;
     printf("%d/%d/%d\n", heures, minutes, secondes);
 
-    /* Exercice n°6 */
-    printf("\n** Exercice n°6 **\n******************\n");
+    // Exercice n°7
+    printf("\n** Exercice n°7 **\n******************\n");
 
     int x, y;
     printf("valeur de x: ");

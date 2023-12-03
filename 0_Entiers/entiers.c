@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-int main() 
+int main()
 {
     // addition 2 + 3
     int a = 2;

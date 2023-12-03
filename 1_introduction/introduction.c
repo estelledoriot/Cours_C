@@ -1,10 +1,10 @@
 /* Estelle DORIOT          */
 /*  Premier programme en C */
 
-#include <stdio.h> 
+#include <stdio.h>
 
 int main()
 {
-    printf("Hello world!"); // pour afficher
+    printf("Hello world!\n"); // pour afficher
     return 0;
 }

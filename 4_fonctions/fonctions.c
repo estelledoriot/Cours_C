@@ -78,7 +78,7 @@ int main()
     hello("Alice");
     hello("Bob");
 
-    char *prenom;
+    char prenom[50];
     printf("Veuillez donner votre prenom: ");
     scanf("%s", prenom);
     hello(prenom);
