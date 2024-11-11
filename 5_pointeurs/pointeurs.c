@@ -6,6 +6,7 @@
 void ajouteDeux(int x);
 void ajouteDeuxBis(int *p);
 void decoupeMinutes(int *pointeurHeures, int *pointeurMinutes);
+int *f();
 
 int main()
 {
@@ -49,4 +50,10 @@ void decoupeMinutes(int *pointeurHeures, int *pointeurMinutes)
 {
     *pointeurHeures += *pointeurMinutes / 60;
     *pointeurMinutes %= 60;
+}
+
+int *f()
+{
+    int x = 42;
+    return &x;
 }
